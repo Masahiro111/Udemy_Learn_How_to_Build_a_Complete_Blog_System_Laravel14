@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Blog</title>
+        <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -54,6 +54,9 @@
 	    <script src="js/respond.min.js"></script>
 	    <![endif]-->
 
+
+        <!-- Custom css -->
+        @yield('custom_css')
     </head>
 
     <body>
@@ -95,6 +98,41 @@
                     </ul>
                 </div>
             </aside>
+
+
+            @yield('content')
+
+            <div id="colorlib-subscribe" class="subs-img" style="background-image: url(blog_template/images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center colorlib-heading animate-box">
+                            <h2>Subscribe Newsletter</h2>
+                            <p>Subscribe our newsletter and get latest update</p>
+                        </div>
+                    </div>
+                    <div class="row animate-box">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form-inline qbstp-header-subscribe">
+                                        <div class="col-three-forth">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                                            </div>
+                                        </div>
+                                        <div class="col-one-third">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <footer id="colorlib-footer">
                 <div class="container">
@@ -217,6 +255,9 @@
         <script src="{{ asset('/blog_template/js/jquery.countTo.js') }}"></script>
         <!-- Main -->
         <script src="{{ asset('/blog_template/js/main.js') }}"></script>
+
+        <!-- Custom js -->
+        @yield('custom_js')
 
     </body>
 
