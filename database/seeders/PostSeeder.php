@@ -20,6 +20,7 @@ class PostSeeder extends Seeder
             'excerpt' => 'This is excerpt.',
             'body' => 'This is body.',
             'user_id' => 1,
+            'category_id' => 1,
         ]);
     }
 }
