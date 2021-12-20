@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
@@ -34,6 +35,40 @@ use Illuminate\Support\Facades\Route;
 //     $user = User::find(1);
 //     return $user->comments;
 // });
+
+
+// Route::get('createpost', function () {
+//     $post = Post::create([
+//         'title' => 'This is post title',
+//         'excerpt' => 'This is exerpt',
+//         'slug' => 'This is slug',
+//         'body' => 'This is content',
+//         'user_id' => 1,
+//         'category_id' => Category::find(1)->id,
+//     ]);
+
+//     $post->image()->create([
+//         'name' => 'random file',
+//         'extension' => 'jpg',
+//         'path' => '/image/randam_file.jpg'
+//     ]);
+// });
+
+// Route::get('createpostimage', function () {
+//     $user =  User::find(1);
+
+//     $user->image()->create([
+//         'name' => 'random file for user',
+//         'extension' => 'jpg',
+//         'path' => '/image/randam_file.jpg'
+//     ]);
+// });
+
+Route::get('getpost', function () {
+    $post =  Post::find(2);
+
+    return $post->image;
+});
 
 Route::get('/', function () {
     return view('home');
