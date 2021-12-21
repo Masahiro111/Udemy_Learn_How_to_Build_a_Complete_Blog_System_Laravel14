@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         $this->call([
             RolesSeeder::class,
             TagSeeder::class,
@@ -23,5 +21,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
         ]);
+
+        \App\Models\Role::factory(1)->create();
+        \App\Models\User::factory(10)->create();
     }
 }
