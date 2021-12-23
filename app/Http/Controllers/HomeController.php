@@ -11,10 +11,12 @@ class HomeController extends Controller
     {
         $posts = Post::latest()->withCount('comments')->paginate(10);
 
+        $recent_posts = Post::latest()->take(5)->get();
+
         // return view('home', [
         //     'posts' => $posts
         // ]);
 
-        return view('home', compact('posts'));
+        return view('home', compact('posts', 'recent_posts'));
     }
 }
