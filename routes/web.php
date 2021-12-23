@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
@@ -70,9 +71,7 @@ Route::get('getpost', function () {
     return $post->image;
 });
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/post', function () {
     return view('post');

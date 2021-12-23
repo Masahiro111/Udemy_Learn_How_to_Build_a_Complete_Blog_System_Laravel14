@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -35,11 +36,16 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\Role::factory(1)->create();
-        \App\Models\User::factory(10)->create();
+        $users = \App\Models\User::factory(10)->create();
         \App\Models\Category::factory(50)->create();
         $posts = \App\Models\Post::factory(10)->create();
         $tags = \App\Models\Tag::factory(10)->create();
         \App\Models\Comment::factory(100)->create();
+
+
+        foreach ($users as $user) {
+            $user->image()->save(Image::factory()->make());
+        }
 
         foreach ($posts as $post) {
             // $tags_ids = [];
@@ -52,6 +58,8 @@ class DatabaseSeeder extends Seeder
                 'post_id' => $post->id,
                 'tag_id' => rand(1, 10),
             ]);
+
+            $post->image()->save(\App\Models\Image::factory()->make());
         }
     }
 }
