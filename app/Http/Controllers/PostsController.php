@@ -21,4 +21,18 @@ class PostsController extends Controller
 
         return view('post', compact('post', 'recent_posts', 'categories', 'tags'));
     }
+
+    public function addComment(Post $post, Request $request)
+    {
+
+        // dd($request->all());
+        $attributes = $request->validate([
+            'comment' => 'required|min:1|max:300'
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+        $comment = $post->comments()->create($attributes);
+
+        return redirect('/posts/' . $post->slug . '#comment_' . $comment->id)->with('success' . 'Comment has been added.');
+    }
 }
