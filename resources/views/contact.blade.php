@@ -34,36 +34,32 @@
                 <h2>Message Us</h2>
             </div>
             <div class="col-md-6">
-                <form action="#">
+                <form autocomplete="off" action="{{ route('contact.store') }}" method="post">
+                    @csrf
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <!-- <label for="fname">First Name</label> -->
-                            <input type="text" id="fname" class="form-control" placeholder="Your firstname">
+                            <x-blog.form.input name="first_name" placeholder="Your Firstname" />
                         </div>
                         <div class="col-md-6">
-                            <!-- <label for="lname">Last Name</label> -->
-                            <input type="text" id="lname" class="form-control" placeholder="Your lastname">
+                            <x-blog.form.input name="last _name" placeholder="Your Email" />
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <!-- <label for="email">Email</label> -->
-                            <input type="text" id="email" class="form-control" placeholder="Your email address">
+                            <x-blog.form.input type="email" name="email" placeholder="Your Email" />
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <!-- <label for="subject">Subject</label> -->
-                            <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
+                            <x-blog.form.input name="subject" placeholder="Your Subject" required="false" />
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <!-- <label for="message">Message</label> -->
-                            <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
+                            <x-blog.form.textarea name="message" placeholder="What you want to tell us." />
                         </div>
                     </div>
                     <div class="form-group">
