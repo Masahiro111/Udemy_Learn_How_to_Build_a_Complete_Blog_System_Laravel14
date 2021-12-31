@@ -22,6 +22,14 @@ class HomeController extends Controller
         //     'posts' => $posts
         // ]);
 
-        return view('home', compact('posts', 'recent_posts', 'categories', 'tags'));
+        return view(
+            'home',
+            compact(
+                'posts',
+                'recent_posts',
+                'categories',
+                'tags'
+            )
+        );
     }
 }
