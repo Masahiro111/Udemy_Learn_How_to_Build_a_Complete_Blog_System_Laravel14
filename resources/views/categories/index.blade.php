@@ -7,46 +7,32 @@
 <div class="colorlib-blog">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12 categories-col">
 
-                @forelse($posts as $post)
+                @forelse($categories as $category)
+
                 <div class="block-21 d-flex animate-box">
                     <a
                        href="{{ route('posts.show',$post->slug) }}"
-                       class="blog-img"
-                       style="background-image: url( '{{ asset('storage/' . $post->image->path) }}');"></a>
+                       class="blog-img">{{ $category->name }}</a>
                     <div class="text">
                         <h3 class="heading">
-                            <a href="{{ route('posts.show',$post->slug) }}">{{ $post->title }}</a>
+                            <a href="{{ route('posts.show',$post->slug) }}">{{ }}</a>
                         </h3>
                         <p>{{ $post->excerpt }}</p>
                         <div class="meta">
-                            <div><a href="#"><span class="icon-calendar"></span>{{ $post->created_at->diffForHumans() }}</a></div>
-                            <div><a href="#"><span class="icon-user2"></span> {{ $post->author->name }}</a></div>
-                            <div><a href="{{ route('posts.show',$post)}}#post-comments"><span class="icon-chat"></span> {{ $post->comments_count }}</a></div>
+                            <div><a href="#"><span class="icon-calendar"></span>{{ $category->created_at->diffForHumans() }}</a></div>
+                            <div><a href="#"><span class="icon-user2"></span> {{ $category->user->name }}</a></div>
                         </div>
                     </div>
                 </div>
                 @empty
-                <p class="lead">There are no posts to show.</p>
+                <p class="lead">There are no categories to show.</p>
                 @endforelse
 
-                {{ $posts->links() }}
 
             </div>
 
-            <!-- SIDEBAR: start -->
-            <div class="col-md-4 animate-box">
-                <div class="sidebar">
-
-                    <x-blog.side-categories :categories="$categories" />
-
-                    <x-blog.side-recent-posts :recentPosts="$recent_posts" />
-
-                    <x-blog.side-tags :tags="$tags" />
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
