@@ -11,6 +11,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,8 @@ use Illuminate\Support\Facades\Route;
 //     return $post->image;
 // });
 
+// Front User Routes
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/posts/{post:slug}', [PostsController::class, 'show'])->name('posts.show');
@@ -97,3 +100,8 @@ Route::get('/tags/{tag:name}', [TagController::class, 'show'])->name('tags.show'
 // })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+
+//Admin Dashboard Routes
+
+Route::get('admin', [Dashboard::class, 'index'])->name('admin.index');
