@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminControllerDashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -104,4 +105,4 @@ require __DIR__ . '/auth.php';
 
 //Admin Dashboard Routes
 
-Route::get('admin', [Dashboard::class, 'index'])->name('admin.index');
+Route::get('admin', [AdminControllerDashboardController::class, 'index'])->name('admin.index');
